@@ -1,0 +1,4 @@
+xlrd3
+datetime
+serial
+serial.tools.list_ports
