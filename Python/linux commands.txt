@@ -1,0 +1,44 @@
+列出系统上已安装的所有软件包
+sudo apt list --installed
+
+系统关机
+shutdown -h now
+
+查询串口
+ls /dev/ttyUSB*
+
+向ttyUSB0发送数据123
+echo 123 > /dev/ttyUSB0
+
+串口接收数据
+cat /dev/ttyUSB0
+
+查看后台运行的python进程和其PID
+ps -ef | grep python
+
+关闭进程
+kill -9 进程号PID
+
+后台运行read.py脚本，并将日志输出到out.log文件
+nohup python3 -u read.py > out.log 2>&1 &
+
+后台运行read.py脚本，只记录程序的异常日志
+nohup python3 read.py > /dev/null 2>error.log 2>&1 &
+
+后台运行read.py脚本，且不打印日志
+nohup python3 read.py > /dev/null 2>&1 &
+
+查看out.log最后1000条运行日志
+tail -1000f out.log
+
+开机启动startup.sh
+sudo chmod 755 startup.sh
+sudo mv startup.sh /etc/init.d/
+cd /etc/init.d/
+sudo update-rc.d startup.sh defaults 99
+sudo update-rc.d -f startup.sh remove
+ls /etc/rc*.d/
+cd /home/aiko/python
+
+bash /home/aiko/python/run.sh
+vim /home/aiko/python/read.py

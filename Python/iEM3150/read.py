@@ -17,7 +17,6 @@ def run():
         time.sleep(3600)
 
 def read():
-    red = []
     try:
         # 读取保持寄存器float swapped(modsim32),Most(modscan32),顺序1234(MCGS)
         red1 = readfloat(master.execute(1, cst.HOLDING_REGISTERS, 3059, 2, '>HH'))
